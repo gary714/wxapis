@@ -1,0 +1,48 @@
+# 使用最新版本的 Python 镜像
+image: python:latest
+
+stages:
+  # 构建阶段
+  - build
+  # 推送阶段
+  - registry
+
+build:
+  # 指明当前作业属于【构建阶段】
+  stage: build
+  # 构建阶段要运行的脚本命令
+  script:
+    # 导出【环境变量】，用于后续步骤引用
+    - export
+    # 安装 wheel 包，用于打包 Python 项目
+    - pip install wheel
+    # 构建 wheel 包和源码包
+    - python setup.py bdist_wheel sdist
+  # 定义构建产品(artifacts)，即构建后保留下来的文件或目录
+  artifacts:
+    paths:
+      # 指定 `dist` 目录下的所有文件作为构建产品存储起来
+      - dist/
+  # 只有在满足以下条件时才会运行此作业：
+  # 标签推送到仓库时激活构建阶段
+  only:
+    - tags
+
+registry:
+  # 指明当前作业属于【推送阶段】
+  stage: registry
+  script:
+    # 导出【环境变量】，用于后续步骤引用
+    - export
+    # 安装 `twine` 工具，用于上传包到 PyPI 或其他索引服务
+    - pip install twine
+    # 使用提供的 `PyPI token` 上传 wheel 文件到 PyPI 官方索引服务
+    - TWINE_PASSWORD=$PYPI_TOKEN TWINE_USERNAME=__token__ python -m twine upload dist/*.whl
+  # 定义此作业【依赖】哪些先前的【作业结果】
+  # 这里依赖 `build` 作业结果中保存下来的 `artifacts`
+  dependencies:
+    - build
+  # 只有在满足以下条件时才会运行此作业：
+  # 标签推送到仓库时激活构建阶段
+  only:
+    - tags
