@@ -273,3 +273,6 @@
     INFO:root:发送消息[{'touser': '', 'agentid': '', 'msgtype': 'text', 'text': {'content': 'test!!!'}, 'safe': 0, 'enable_id_trans': 0, 'enable_duplicate_check': 0}]。
     INFO:root:任务执行："True"。
     ```
+
+### 其它
+* [如何发送媒体文件（如文本文件、图片等）到企业微信应用中？](wxapis/medias/README.md)

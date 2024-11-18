@@ -8,7 +8,7 @@
         以及将扁平结构的字典重新【嵌套化】。
 
         `flatten-dict` 文档地址：
-        【https://github.com/ianlini/flatten-dict/blob/master/README.rst】
+        https://github.com/ianlini/flatten-dict/blob/master/README.rst。
 
         这个模块非常有用，尤其是在处理嵌套结构复杂的 JSON 数据
         或者需要在数据库和内存表示之间进行转换时。
@@ -47,7 +47,7 @@
         如果遇到嵌套的字典，则会递归地执行这个更新过程。
 
         `dict-recursive-update` 文档地址：
-        【https://github.com/Maples7/dict-recursive-update/blob/master/README.rst】
+        https://github.com/Maples7/dict-recursive-update/blob/master/README.rst。
 
         示例：
             >>> from dict_recursive_update import recursive_update
@@ -215,7 +215,8 @@ def merge_fields(msg: str, msg_format: str, fields: list) -> dict:
             并通过 `recursive_update` 方法与原始消息进行递归更新和合并。
 
     :param msg: 需要合并到的【原始消息字符串】。
-    :param msg_format: 【消息格式化方式】，用于指定如何解析原始消息。
+    :param msg_format: 【消息格式化方式】，
+    用于指定如何解析原始消息。
     :param fields: 包含 "键=值" 对的字段列表，
     其中每个字段可以使用空格分隔多个键值对。
     键值对中的键支持使用点号 "." 来表示嵌套结构。
@@ -270,9 +271,14 @@ def send_wx_msg(args) -> bool:
 
         参数 args 包含：
             - `message`: 字符串，待发送的【消息内容】。
-            - `field`: 列表，【附加字段】以 "key=value" 格式添加到消息。
+
+            - `field`: 列表，
+              【附加字段】以 "key=value" 格式添加到消息。
+
             - `format`: 字符串，指定如何格式化 `message` 参数。
+
             - `corpid`: 字符串，用于认证的企业 ID。
+
             - `secret`: 字符串，用于认证的应用密钥。
 
     :return:

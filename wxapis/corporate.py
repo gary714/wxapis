@@ -7,7 +7,7 @@
         政民沟通等 API，企业可以使用这些 API，为企业接入更多个性化的办公应用。
 
     简易教程：
-        https://developer.work.weixin.qq.com/document/path/90487
+        https://developer.work.weixin.qq.com/document/path/90487。
 
     注意：本脚本中出现的 "py"，如无特殊说明，则指代 "Python"。
 """

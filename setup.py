@@ -179,7 +179,7 @@ setup(
     # （通常是那些含有 `__init__.py` 文件的目录）
     packages=find_packages(),
     # 直接指定【版本号】
-    version="1.0.0",
+    version="2.0.0",
     # 配置涉及到 `setuptools_scm` 插件
     # 它使用源码管理（SCM）系统（如 git）来发现项目版本
     use_scm_version={
